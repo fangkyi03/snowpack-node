@@ -1376,28 +1376,6 @@ async function scanImports(cwd, {
       const str = fs__default.readFileSync(filePath, 'utf-8')
       const fileName = filePath.split('/').slice(-1)[0]
       const result = babel.parseSync(str, { filename: fileName })
-      traverse(result,{
-        ImportDeclaration(path){
-          const current = path.node
-          if (current.source.value == '@ant-design/icons') {
-            const arr = current.specifiers.map((e)=> {
-              if (e.type !== 'ImportSpecifier' ) return null
-              const importName = e.imported.name
-              const n = babel.types.importDeclaration(
-                [
-                  babel.types.importDefaultSpecifier(
-                    babel.types.identifier(importName),
-                  )
-                ],
-                babel.types.stringLiteral('@ant-design/icons/es/icons/' + importName),
-              )
-              return n
-            })
-            path.parent.body.splice(1,0,...arr)
-            path.remove()
-          }
-        }
-      })
       const tranForm = babel.transformFromAstSync(result, '', { filename: fileName })
       return [filePath, tranForm.code];
     }
@@ -4624,6 +4602,6 @@ async function cli(args) {
   process.exit(1);
 }
 
-// cli(['','','dev'])
+// cli(['','','build'])
 exports.cli = cli;
 //# sourceMappingURL=index.js.map
