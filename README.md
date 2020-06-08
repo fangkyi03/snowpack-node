@@ -10,3 +10,6 @@ npm i --save git+https://github.com/fangkyi03/snowpack-node.git
 2.增加对@ant-design/icons支持
 
 3.修改部分路径下的css热更新失效问题
+
+# 演示demo
+https://github.com/fangkyi03/snowpack-demo.git
