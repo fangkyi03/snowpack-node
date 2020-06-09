@@ -3693,9 +3693,9 @@ async function command$2(commandOptions) {
     let updateUrl = getUrlFromFile(mountedDirectories, fileLoc);
     let isNotjs = false
     if (updateUrl) {
-      // if (!updateUrl.endsWith('.js')) {
-      //   updateUrl += '.proxy.js';
-      // }
+      if (!updateUrl.endsWith('.js')) {
+        updateUrl += '.proxy.js';
+      }
 
       if (isLiveReloadPaused) {
         return;
@@ -4602,6 +4602,6 @@ async function cli(args) {
   process.exit(1);
 }
 
-// cli(['','','build'])
+// cli(['','','dev'])
 exports.cli = cli;
 //# sourceMappingURL=index.js.map
