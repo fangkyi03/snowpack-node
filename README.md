@@ -2,7 +2,9 @@
 这个是snowpack优化版本 不保证跟官方版本同步
 
 # 安装
+```
 npm i --save git+https://github.com/fangkyi03/snowpack-node.git
+```
 
 # 修复功能
 1.增加babel-plugin-import支持
